@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head class="bg-gray-50  border-b border-gray-100 flex items-baseline justify-between py-4 px-6 ">
+    <b><h1 style="text-transform: uppercase; background-color:rgb(35, 142, 168); border-radius: 0.05cm; color: rgb(82, 7, 44);">COMMENT SECTION</h1></b>
+</head>
+
+<body>
+    <!-- <div class="bg-gray-100 bg-gray-100 rounded-full rounded-md relative ">
+        <form action="/comment?post_id={{post.id}}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+            <input type="text" placeholder="post a comment" class="bg-transparent max-h-10 shadow-none" > -->
+            <!-- <button class="block font-semibold" style="background-color:rgb(226, 14, 138); border-radius: 0.1cm; border-color: azure; color: black; ">Post</button>
+            <div class="absolute bottom-0 flex h-full items-center right-0 right-3 text-xl space-x-2">
+                <a href="#"> <i class="uil-image"></i></a>
+                <a href="#"> <i class="uil-video"></i></a> -->
+            <!-- </div>
+        </form>
+    </div> -->
+
+    <div>
+        <ul>
+            {% for comment in comments %}
+            <li>
+                {{comment.user}} : {{ comment.body }}
+                {% for child_comment in comments %}
+                    {{child_comment.comment}}
+                {% endfor %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
